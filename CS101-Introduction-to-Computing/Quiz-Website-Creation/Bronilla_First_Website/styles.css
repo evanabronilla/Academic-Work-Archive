@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5dc; 
+    font-family: 'Rockwell', serif; 
+    font-size: 22px; 
+    line-height: 1.6; 
+}
+
+header {
+    background: #3b3c36; 
+    color: white;
+    padding: 10px 0; 
+    text-align: center; 
+}
+
+header h1 {
+    margin: 0; 
+}
+
+nav ul {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+nav ul li {
+    display: inline; 
+    margin: 0 15px; 
+}
+
+nav ul li a {
+    color: #f0c04e; 
+    text-decoration: none; 
+}
+
+nav ul li a:hover {
+    text-decoration: underline; 
+    color: #3b2a2a; 
+}
+
+main {
+    text-align: center; 
+    padding: 20px; 
+}
+
+.welcome {
+    margin: 20px 0; 
+    font-size: 24px; 
+    color: #3b2a2a; 
+}
+
+main img {
+    display: block; 
+    margin: 20px auto; 
+    width: 100%; 
+    height: auto; 
+    max-height: 100vh; 
+}
+
+nav ul li a i {
+    margin-right: 8px; 
+    color: #f0c04e; 
+}
+
+nav ul li a:hover i {
+    color: #3b2a2a; 
+}
+
+footer {
+    background: #3b3c36; 
+    color: white; 
+    padding: 10px 0; 
+    text-align: center; 
+    position: relative; 
+    bottom: 0; 
+    width: 100%; 
+}
+
+.faq-section {
+    margin: 30px auto;
+    max-width: 800px;
+    text-align: left;
+}
+
+.faq-section h3 {
+    font-size: 24px;
+    color: #3b2a2a;
+    margin-top: 20px;
+}
+
+.faq-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
