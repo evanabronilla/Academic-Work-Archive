@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Odd or Even Checker</title>
+</head>
+<body>
+  <h2>Check if ODD or EVEN</h2>
+  <input type="text" id="txtInput" />
+  <button onclick="checkOddEven()">Check</button>
+
+  <script>
+    function checkOddEven() {
+      var input = document.getElementById("txtInput").value;
+      var number = parseInt(input);
+
+      if (isNaN(number)) {
+        alert("Please enter a valid number.");
+      } else {
+        if (number % 2 === 0) {
+          alert("Even");
+        } else {
+          alert("Odd");
+        }
+      }
+    }
+  </script>
+</body>
+</html>

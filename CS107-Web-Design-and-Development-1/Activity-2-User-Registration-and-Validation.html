@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bronilla Module 1 Activity: CS107</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Georgia, serif;
+      background-color: #fff;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 28px;
+    }
+    .form-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    label {
+      width: 160px;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 320px;
+      font-size: 28px;
+      padding: 8px;
+      border: 1px solid #888;
+      border-radius: 4px;
+    }
+    .button-row {
+      margin-left: 160px;
+      display: flex;
+      gap: 20px;
+    }
+    button {
+      font-size: 17px;
+      padding: 8px 24px;
+      border: 1px solid #888;
+      border-radius: 6px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e2e2e2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-row">
+      <label for="username">Username :</label>
+      <input type="text" id="username" />
+    </div>
+    <div class="form-row">
+      <label for="password">Password :</label>
+      <input type="password" id="password" />
+    </div>
+    <div class="button-row">
+      <button onclick="validateUser()">Validate</button>
+      <button onclick="addUser()">Add</button>
+      <button onclick="clearFields()">Clear</button>
+    </div>
+  </div>
+
+  <script>
+    'use strict';
+    const userList = [];
+
+    function isValidPassword(password) {
+      const hasUpper = /[A-Z]/.test(password);
+      const hasLower = /[a-z]/.test(password);
+      const hasNumber = /[0-9]/.test(password);
+      const hasSymbol = /[\W_]/.test(password);
+      return password.length >= 8 && hasUpper && hasLower && hasNumber && hasSymbol;
+    }
+
+    function addUser() {
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (!username || !password) {
+        alert('Please fill in both username and password.');
+        return;
+      }
+
+      if (!isValidPassword(password)) {
+        alert('Password must be at least 8 characters and include uppercase, lowercase, number, and symbol.');
+        return;
+      }
+
+      const exists = userList.some(user => user.username === username);
+      if (exists) {
+        alert('This user already exists.');
+        return;
+      }
+
+      userList.push({ username, password });
+      alert('User added successfully.');
+      clearFields();
+    }
+
+    function validateUser() {
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const isMatch = userList.some(user => user.username === username && user.password === password);
+      alert(isMatch ? 'Validation successful: User found.' : 'Validation failed: Incorrect credentials.');
+    }
+
+    function clearFields() {
+      document.getElementById('username').value = '';
+      document.getElementById('password').value = '';
+    }
+  </script>
+</body>
+</html>
